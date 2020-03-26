@@ -36,14 +36,10 @@ router.post('/login', async (req, res, next) => {
 		}
 
 		const payload = {
-			subject: user.id,
-			username: user.username
-		};
-		const options = {
-			expiresIn: '1d'
+			UserId: user.id
 		};
 
-		const token = jwt.sign(payload, process.JWT_SECRET, options);
+		const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
 
 		res.cookie('token', token);
 
@@ -54,7 +50,5 @@ router.post('/login', async (req, res, next) => {
 		next(err);
 	}
 });
-
-//create logout route
 
 module.exports = router;
