@@ -21,9 +21,9 @@
 ## songs Table
 
 | HTTP | Path | Description | Route Method |  
-| -- | -- | -- | -- | 
+|  |  |  | | 
 | Get | /api/songs | Get a list of songs | find  
-| -- | -- | -- | -- | 
+| | | | | 
 | Post | /api/songs | Add a song | insert 
-| -- | -- | -- | -- | 
+| | | | | 
 | Delete | /api/songs | delete a song | remove 
