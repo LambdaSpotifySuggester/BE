@@ -28,7 +28,12 @@ router.get('/:id', async (req, res, next) => {
 
 router.get('/:id/songs', async (req, res, next) => {
 	try {
-		const songs = await db('songs as s', 's.a_id', 'a.id').join('artists as a').select('s.name', 'a.name');
+		const songs = await Artists.findArtistSongs(req.params.id);
+		if (!songs) {
+			return res.status(404).json({
+				message: 'Songs not found'
+			});
+		}
 
 		res.json(songs);
 	} catch (err) {

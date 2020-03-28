@@ -14,7 +14,8 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
 	try {
-		const song = await db('songs').where('id', req.params.id).first();
+		const song = await Songs.getById(req.params.id);
+		console.log(song);
 		if (!song) {
 			return res.status(404).json({
 				message: 'Song not found'
