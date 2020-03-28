@@ -14,16 +14,21 @@ router.get('/', restrict(), async (req, res, next) => {
 });
 
 router.get('/:id', restrict(), async (req, res, next) => {
+	const id = req.params.id;
 	try {
-		res.json(req.user);
+		const favs = await Users.getFavorites(id);
+		res.status(200).json(favs);
+		// res.json(await Users.findById(req.username));
+		console.log(req.user);
 	} catch (err) {
 		next(err);
 	}
 });
 
-router.get('/:id/favorites', async (req, res, next) => {
+router.get('/favorites', restrict(), async (req, res, next) => {
 	try {
 		res.json(await Users.getFavorites(req.params.id));
+		console.log('params', req.params.id);
 	} catch (err) {
 		next(err);
 	}

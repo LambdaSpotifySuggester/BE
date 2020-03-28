@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
 	try {
 		const song = await Songs.getById(req.params.id);
-		console.log(song);
+		console.log('song', song);
 		if (!song) {
 			return res.status(404).json({
 				message: 'Song not found'
@@ -35,8 +35,10 @@ router.post('/', async (req, res, next) => {
 		next(err);
 	}
 });
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
 	try {
+		const { id } = req.params;
+		await db('songs').where({ id }).del();
 		res.status(204).end();
 	} catch (err) {
 		next(err);

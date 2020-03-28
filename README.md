@@ -1,6 +1,6 @@
 # BACK-END
 
-## users Table
+## auth Table
 
 | HTTP | Path | Description | Data
 | -- | -- | -- | -- |
@@ -10,8 +10,16 @@
 | |  |  | **Returns** {"id": #, "username": "", "password": ""} |
 **Registration object**
 
-{
+{   
+    <br />
     "username": "", required string,
     <br />
     "password": "", required string
+    <br />
 }
+
+## user Table
+
+| HTTP | Path | Description | Route Method | Description | Data
+| -- | -- | -- | -- | -- | -- |
+| Get | /api/user/:id/favorites | Get a list of users | *Example objects below* |
