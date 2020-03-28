@@ -27,3 +27,16 @@
 | Post | /api/songs | Add a song | insert 
 | -- | -- | -- | -- | 
 | Delete | /api/songs | delete a song | remove 
+
+## artists Table
+
+| HTTP | Path | Description | Route Method |  
+| -- | -- | -- | -- | 
+| Get | /api/artists | Get a list of artists | find  
+| -- | -- | -- | -- | 
+| Get | /api/artists/:id | Get an artist by Id | findById 
+| -- | -- | -- | -- | 
+| Post | /api/artists | Add an artist | insert 
+| -- | -- | -- | -- | 
+| Delete | /api/artists | delete a artist | remove 
+
