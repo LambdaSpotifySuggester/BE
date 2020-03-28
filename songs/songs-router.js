@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
 	try {
-		res.json(await db('songs'));
+		res.json(await Songs.find('songs'));
 	} catch (err) {
 		next(err);
 	}

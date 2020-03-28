@@ -18,8 +18,12 @@
     <br />
 }
 
-## user Table
+## songs Table
 
-| HTTP | Path | Description | Route Method | Description | Data
+| HTTP | Path | Description | Route Method | Description |
 | -- | -- | -- | -- | -- | -- |
-| Get | /api/user/:id/favorites | Get a list of users | *Example objects below* |
+| Get | /api/songs | Get a list of songs | find | 
+| -- | -- | -- | -- | -- | -- |
+| Post | /api/songs | Add a song | insert | 
+| -- | -- | -- | -- | -- | -- |
+| Delete | /api/songs | delete a song | remove | 

@@ -5,6 +5,10 @@ async function insert(song) {
 	return findById(id);
 }
 
+function find() {
+	return db('songs').select('name');
+}
+
 function findById(id) {
 	return db('songs').where({ id }).first();
 }
@@ -23,6 +27,7 @@ function remove(id) {
 
 module.exports = {
 	insert,
+	find,
 	findById,
 	getById,
 	remove
