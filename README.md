@@ -9,3 +9,8 @@
 | Post | /api/auth/login | 	Logs user in with auth token | **Expects** {"username": "", "password": ""}
 | |  |  | **Returns** {"id": #, "username": "", "password": ""} |
 **Registration object**
+
+{
+    "username": "", required string
+    "password": "", required string
+}
