@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../data/config');
+// const db = require('../data/config');
 const Artists = require('./artist-model');
 
 const router = express.Router();
@@ -29,6 +29,7 @@ router.get('/:id', async (req, res, next) => {
 router.get('/:id/songs', async (req, res, next) => {
 	try {
 		const songs = await Artists.findArtistSongs(req.params.id);
+
 		if (!songs) {
 			return res.status(404).json({
 				message: 'Songs not found'
@@ -42,6 +43,7 @@ router.get('/:id/songs', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+	console.log(req.body);
 	try {
 		const artist = await Artists.insert(req.body);
 		return res.status(201).json(artist);

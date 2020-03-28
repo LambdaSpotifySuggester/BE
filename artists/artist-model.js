@@ -17,11 +17,12 @@ function remove(id) {
 	return db('artists').where({ id }).del();
 }
 
-function findArtistSongs(artistId) {
+function findArtistSongs(id) {
 	return db('songs as s')
-		.join('artists as a', 's.a_id', 'a.id')
-		.where({ artist_id: artistId })
-		.select('s.id', 's.name', 'a.name');
+		.join('artists as a', 's.artist_id', 'a.id')
+		.where({ artist_id: id })
+		.select([ 'a.id', 'a.name as artist_name', 's.name as song_name' ])
+		.first();
 }
 
 module.exports = {

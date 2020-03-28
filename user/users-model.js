@@ -25,8 +25,10 @@ function getFavorites(id) {
 		.where('u.id', id)
 		.join('favorites as f', 'f.user_id', 'u.id')
 		.join('songs as s', 's.id', 'f.song_id')
-		.select('s.*', 'u.id');
+		.join('artists as a', 's.artist_id', 'a.id')
+		.select('u.id', 's.name as song_name', 'a.name as artist_name');
 }
+
 module.exports = {
 	add,
 	find,

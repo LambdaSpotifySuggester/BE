@@ -21,6 +21,14 @@ router.get('/:id', restrict(), async (req, res, next) => {
 	}
 });
 
+router.get('/:id/favorites', async (req, res, next) => {
+	try {
+		res.json(await Users.getFavorites(req.params.id));
+	} catch (err) {
+		next(err);
+	}
+});
+
 router.delete('/:id', restrict(), async (req, res, next) => {
 	try {
 		const { id } = req.params;
