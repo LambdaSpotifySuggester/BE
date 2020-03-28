@@ -11,6 +11,6 @@
 **Registration object**
 
 {
-    "username": "", required string
+    "username": "", required string,
     "password": "", required string
 }
