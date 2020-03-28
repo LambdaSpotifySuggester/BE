@@ -38,5 +38,9 @@
 | -- | -- | -- | -- | 
 | Post | /api/artists | Add an artist | insert 
 | -- | -- | -- | -- | 
-| Delete | /api/artists/:id | delete an artist | remove 
+| Delete | /api/artists/:id | Delete an artist | remove 
 
+
+## users Table
+| HTTP | Path | Description | Route Method | 
+| -- | -- | -- | -- |
