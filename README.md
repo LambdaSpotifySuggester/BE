@@ -2,7 +2,7 @@
 
 ## auth Table
 
-| HTTP | Path | Description | Data
+| HTTP | Path | Description | Data 
 | -- | -- | -- | -- |
 | Post | /api/auth/register | Registers new users | *Example objects below* |
 | |  |  | **Returns** {"id": #, "username": ""} |
@@ -20,10 +20,10 @@
 
 ## songs Table
 
-| HTTP | Path | Description | Route Method | Description |
-| -- | -- | -- | -- | -- | -- |
-| Get | /api/songs | Get a list of songs | find | 
-| -- | -- | -- | -- | -- | -- |
-| Post | /api/songs | Add a song | insert | 
-| -- | -- | -- | -- | -- | -- |
-| Delete | /api/songs | delete a song | remove | 
+| HTTP | Path | Description | Route Method |  
+| -- | -- | -- | -- | 
+| Get | /api/songs | Get a list of songs | find  
+| -- | -- | -- | -- | 
+| Post | /api/songs | Add a song | insert 
+| -- | -- | -- | -- | 
+| Delete | /api/songs | delete a song | remove 
