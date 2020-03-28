@@ -38,5 +38,5 @@
 | -- | -- | -- | -- | 
 | Post | /api/artists | Add an artist | insert 
 | -- | -- | -- | -- | 
-| Delete | /api/artists | delete a artist | remove 
+| Delete | /api/artists/:id | delete an artist | remove 
 
