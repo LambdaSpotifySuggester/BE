@@ -34,6 +34,14 @@ router.get('/favorites', restrict(), async (req, res, next) => {
 	}
 });
 
+router.post('/favorites', restrict(), async (req, res, next) => {
+	try {
+		const favs = await Users.addFavorites(req.body);
+		res.status(201).json(favs);
+	} catch (err) {
+		next(err);
+	}
+});
 router.delete('/:id', restrict(), async (req, res, next) => {
 	try {
 		const { id } = req.params;
