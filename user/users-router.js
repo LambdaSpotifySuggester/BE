@@ -25,7 +25,7 @@ router.get('/:id', restrict(), async (req, res, next) => {
 	}
 });
 
-router.get('/favorites', restrict(), async (req, res, next) => {
+router.get('/:id/favorites', restrict(), async (req, res, next) => {
 	try {
 		res.json(await Users.getFavorites(req.params.id));
 		console.log('params', req.params.id);
@@ -34,7 +34,7 @@ router.get('/favorites', restrict(), async (req, res, next) => {
 	}
 });
 
-router.post('/favorites', restrict(), async (req, res, next) => {
+router.post('/:id/favorites', restrict(), async (req, res, next) => {
 	try {
 		const favs = await Users.addFavorites(req.body);
 		res.status(201).json(favs);

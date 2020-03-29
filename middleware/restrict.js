@@ -6,7 +6,7 @@ function restrict() {
 	const authError = {
 		message: 'Invalid credentials, sucka!'
 	};
-	return async (req, res, next) => {
+	return (req, res, next) => {
 		try {
 			const { token } = req.cookies;
 			if (!token) {

@@ -21,6 +21,7 @@ function findById(id) {
 }
 function addFavorites(id) {
 	return db('users as u')
+		.insert(id)
 		.where('u.id', id)
 		.join('favorites as f', 'f.user_id', 'u.id')
 		.join('songs as s', 's.id', 'f.song_id')

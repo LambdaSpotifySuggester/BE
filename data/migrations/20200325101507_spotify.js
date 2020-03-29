@@ -13,7 +13,7 @@ exports.up = async function(knex) {
 	await knex.schema.createTable('songs', (tbl) => {
 		tbl.increments('id');
 		tbl.string('name').notNull();
-		tbl.integer('artist_id').references('id').inTable('artists').onUpdate('CASCADE').onDelete('CASCADE');
+		tbl.integer('artist_id').references('id').inTable('artists').onUpdate('CASCADE').onDelete('CASCADE').notNull();
 	});
 
 	await knex.schema.createTable('favorites', (tbl) => {

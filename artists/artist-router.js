@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('../data/config');
 const Artists = require('./artist-model');
+const restrict = require('../middleware/restrict');
 
 const router = express.Router();
 

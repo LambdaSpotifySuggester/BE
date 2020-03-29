@@ -47,3 +47,6 @@ https://remix-lambda.herokuapp.com/
 ## users Table
 | HTTP | Path | Description | Route Method | 
 | -- | -- | -- | -- |
+| Get | /api/:id/favorites | Get a list of artists and songs in favorites | getFavorites
+-- | -- | -- | -- | 
+| Post | /api/:id/favorites | Add an artist and song to favorites | addFavorites

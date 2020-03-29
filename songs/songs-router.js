@@ -1,10 +1,11 @@
 const express = require('express');
 const db = require('../data/config');
 const Songs = require('./songs-model');
+const restrict = require('../middleware/restrict');
 
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
+router.get('/', restrict(), async (req, res, next) => {
 	try {
 		res.json(await Songs.find('songs'));
 	} catch (err) {

@@ -6,7 +6,7 @@ async function insert(song) {
 }
 
 function find() {
-	return db('songs').select('name');
+	return db('songs').select('id', 'name');
 }
 
 function findById(id) {
