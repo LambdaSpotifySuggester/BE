@@ -1,5 +1,5 @@
 const express = require('express');
-// const db = require('../data/config');
+const db = require('../data/config');
 const Artists = require('./artist-model');
 
 const router = express.Router();
@@ -47,6 +47,16 @@ router.post('/', async (req, res, next) => {
 	try {
 		const artist = await Artists.insert(req.body);
 		return res.status(201).json(artist);
+	} catch (err) {
+		next(err);
+	}
+});
+
+router.delete('/:id', async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		await db('artists').where({ id }).del();
+		res.status(204).end();
 	} catch (err) {
 		next(err);
 	}
