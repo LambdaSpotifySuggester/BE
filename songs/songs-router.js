@@ -5,7 +5,7 @@ const restrict = require('../middleware/restrict');
 
 const router = express.Router();
 
-router.get('/', restrict(), async (req, res, next) => {
+router.get('/', async (req, res, next) => {
 	try {
 		res.json(await Songs.find('songs'));
 	} catch (err) {

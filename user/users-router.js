@@ -5,7 +5,7 @@ const db = require('../data/config');
 
 const router = express.Router();
 
-router.get('/', restrict(), async (req, res, next) => {
+router.get('/', async (req, res, next) => {
 	try {
 		res.json(await Users.find());
 	} catch (err) {
@@ -13,19 +13,18 @@ router.get('/', restrict(), async (req, res, next) => {
 	}
 });
 
-router.get('/:id', restrict(), async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
 	const id = req.params.id;
 	try {
 		const favs = await Users.getFavorites(id);
 		res.status(200).json(favs);
-		// res.json(await Users.findById(req.username));
 		console.log(req.user);
 	} catch (err) {
 		next(err);
 	}
 });
 
-router.get('/:id/favorites', restrict(), async (req, res, next) => {
+router.get('/:id/favorites', async (req, res, next) => {
 	try {
 		res.json(await Users.getFavorites(req.params.id));
 		console.log('params', req.params.id);
@@ -34,7 +33,7 @@ router.get('/:id/favorites', restrict(), async (req, res, next) => {
 	}
 });
 
-router.post('/:id/favorites', restrict(), async (req, res, next) => {
+router.post('/:id/favorites', async (req, res, next) => {
 	try {
 		const favs = await Users.addFavorites(req.body);
 		res.status(201).json(favs);
