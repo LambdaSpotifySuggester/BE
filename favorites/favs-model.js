@@ -20,22 +20,18 @@ function findById(id) {
 	return db('users').select('id', 'username').where({ id }).first();
 }
 function addFavorites(id) {
-	return db('users as u')
+	return db('favorites as f')
 		.insert(id)
-		.where('u.id', id)
-		.join('favorites as f', 'f.user_id', 'u.id')
+		.where('f.id', id)
 		.join('songs as s', 's.id', 'f.song_id')
-		.join('artists as a', 's.artist_id', 'a.id')
-		.select('u.id', 's.name as song_name', 'a.name as artist_name');
+		.join('artists as a', 'f.artist_id', 'a.id')
+		.select('f.id', ' song_name', 'artist_name');
 }
-function getFavorites(id) {
-	return db('users as u')
-		.where('u.id', id)
-		.join('favorites as f', 'f.user_id', 'u.id')
+function getAll(id) {
+	return db('favorites as f')
 		.join('songs as s', 's.id', 'f.song_id')
-		.join('artists as a', 's.artist_id', 'a.id')
-		.select('u.id', 's.name as song_name', 'a.name as artist_name')
-		.first();
+		.join('artists as a', 'f.artist_id', 'a.id')
+		.select('song_name', ' artist_name');
 }
 
 module.exports = {
@@ -43,6 +39,6 @@ module.exports = {
 	find,
 	findBy,
 	findById,
-	getFavorites,
+	getAll,
 	addFavorites
 };

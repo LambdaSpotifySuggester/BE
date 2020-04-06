@@ -6,7 +6,7 @@ async function insert(artist) {
 }
 
 function find() {
-	return db('artists').select('id', 'name');
+	return db('artists').select('id', 'artist_name');
 }
 
 function findById(id) {

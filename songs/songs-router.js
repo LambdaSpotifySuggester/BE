@@ -5,7 +5,7 @@ const restrict = require('../middleware/restrict');
 
 const router = express.Router();
 
-router.get('/', async (req, res, next) => {
+router.get('/', restrict, async (req, res, next) => {
 	try {
 		res.json(await Songs.find('songs'));
 	} catch (err) {
@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
 	}
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', restrict, async (req, res, next) => {
 	try {
 		const song = await Songs.getById(req.params.id);
 		console.log('song', song);
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res, next) => {
 	}
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', restrict, async (req, res, next) => {
 	try {
 		const song = await Songs.insert(req.body);
 		res.status(201).json(song);
@@ -36,7 +36,7 @@ router.post('/', async (req, res, next) => {
 		next(err);
 	}
 });
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', restrict, async (req, res, next) => {
 	try {
 		const { id } = req.params;
 		await db('songs').where({ id }).del();
